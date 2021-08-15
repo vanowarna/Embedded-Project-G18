@@ -1,0 +1,2 @@
+LIST p=16F84A
+#INCLUDE <p16f84a.inc>
