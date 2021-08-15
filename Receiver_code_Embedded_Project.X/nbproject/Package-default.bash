@@ -10,9 +10,9 @@ CND_CONF=default
 CND_DISTDIR=dist
 TMPDIR=build/${CND_CONF}/${IMAGE_TYPE}/tmp-packaging
 TMPDIRNAME=tmp-packaging
-OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Transmitter_code_Embedded_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-OUTPUT_BASENAME=Transmitter_code_Embedded_Project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
-PACKAGE_TOP_DIR=transmittercodeembeddedproject.x/
+OUTPUT_PATH=dist/${CND_CONF}/${IMAGE_TYPE}/Receiver_code_Embedded_project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+OUTPUT_BASENAME=Receiver_code_Embedded_project.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
+PACKAGE_TOP_DIR=receivercodeembeddedproject.x/
 
 # Functions
 function checkReturnCode
@@ -57,15 +57,15 @@ mkdir -p ${TMPDIR}
 
 # Copy files and create directories and links
 cd "${TOP}"
-makeDirectory ${TMPDIR}/transmittercodeembeddedproject.x/bin
+makeDirectory ${TMPDIR}/receivercodeembeddedproject.x/bin
 copyFileToTmpDir "${OUTPUT_PATH}" "${TMPDIR}/${PACKAGE_TOP_DIR}bin/${OUTPUT_BASENAME}" 0755
 
 
 # Generate tar file
 cd "${TOP}"
-rm -f ${CND_DISTDIR}/${CND_CONF}/package/transmittercodeembeddedproject.x.tar
+rm -f ${CND_DISTDIR}/${CND_CONF}/package/receivercodeembeddedproject.x.tar
 cd ${TMPDIR}
-tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/transmittercodeembeddedproject.x.tar *
+tar -vcf ../../../../${CND_DISTDIR}/${CND_CONF}/package/receivercodeembeddedproject.x.tar *
 checkReturnCode
 
 # Cleanup
