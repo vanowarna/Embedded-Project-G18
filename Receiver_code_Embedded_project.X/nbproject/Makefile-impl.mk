@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=Receiver_code_Embedded_project.X
+PROJECTNAME=Receiver_code_Embedded_Project.X
 
 # Active Configuration
 DEFAULTCONF=default

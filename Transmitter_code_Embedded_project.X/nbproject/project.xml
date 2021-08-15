@@ -3,15 +3,15 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Transmitter_code_Embedded_project</name>
-            <creation-uuid>aeb76e03-efe1-4c20-ac4c-90de58dc1185</creation-uuid>
+            <name>Transmitter_code_Embedded_Project</name>
+            <creation-uuid>4956547e-800c-42e9-9ab3-baaa27a6a263</creation-uuid>
             <make-project-type>0</make-project-type>
             <c-extensions/>
             <cpp-extensions/>
             <header-extensions/>
             <asminc-extensions/>
-            <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>
+            <sourceEncoding>ISO-8859-1</sourceEncoding>
         </data>
     </configuration>
 </project>
