@@ -9,6 +9,7 @@
    CBLOCK 0CH
     COUNT1
     COUNT2
+    COUNT3
     STORE_INP
    ENDC
 
@@ -16,6 +17,7 @@ MAIN
    BSF   STATUS,5
    CLRF  TRISA
    BCF   STATUS,5
+   CLRF  PORTA
 INTDEF
    MOVLW B'10010000'
    MOVWF INTCON
@@ -47,9 +49,9 @@ DB_DELAY
 
 ; Temporary delay for pulse. Use a timer
 DELAY
-   DECFSZ  COUNT1,1
-   GOTO    DELAY
    DECFSZ  COUNT2,1
+   GOTO    DELAY
+   DECFSZ  COUNT3,1
    GOTO    DELAY
    RETURN
 
