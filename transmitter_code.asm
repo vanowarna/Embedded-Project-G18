@@ -1,1 +1,93 @@
+  LIST p=16F84A
+  #INCLUDE <p16f84a.inc>
 
+  ORG 0x00
+  GOTO MAIN
+  ORG 0x04
+  GOTO INT
+
+   CBLOCK 0CH
+    COUNT1
+    COUNT2
+    STORE_INP
+   ENDC
+
+MAIN
+   BSF   STATUS,5
+   CLRF  TRISA
+   BCF   STATUS,5
+INTDEF
+   MOVLW B'10010000'
+   MOVWF INTCON
+
+LOOP
+   GOTO LOOP    ;Loop until interupt happens
+
+INT
+   CALL  DB_DELAY
+   ; =================
+   CLRF  STORE_INP
+   BTFSC PORTA,1
+   BSF   STORE_INP,0
+   BTFSC PORTA,2
+   BSF   STORE_INP,1
+   BTFSC PORTA,3
+   BSF   STORE_INP,2
+   BTFSC PORTA,4
+   BSF   STORE_INP,3
+   ; =================
+   CALL  LASER_PULSE
+   BCF	INTCON,INTF		
+   RETFIE			
+    
+DB_DELAY
+   DECFSZ  COUNT1,1
+   GOTO    DB_DELAY 
+   RETURN
+
+; Temporary delay for pulse. Use a timer
+DELAY
+   DECFSZ  COUNT1,1
+   GOTO    DELAY
+   DECFSZ  COUNT2,1
+   GOTO    DELAY
+   RETURN
+
+
+
+LASER_PULSE
+   ; DUMMY PULSE 
+   BSF   PORTA,0
+   CALL  DELAY
+   BCF   PORTA,0
+   ;BIT0 
+   BTFSC STORE_INP,0
+   BSF   PORTA,0
+   CALL  DELAY
+   ; DUMMY PULSE
+   BSF   PORTA,0
+   CALL  DELAY
+   BCF   PORTA,0
+   ;BIT1 
+   BTFSC STORE_INP,1
+   BSF   PORTA,0
+   CALL  DELAY
+   ; DUMMY PULSE
+   BSF   PORTA,0
+   CALL  DELAY
+   BCF   PORTA,0
+   ;BIT2 
+   BTFSC STORE_INP,2
+   BSF   PORTA,0
+   CALL  DELAY
+   ; DUMMY PULSE
+   BSF   PORTA,0
+   CALL  DELAY
+   BCF   PORTA,0
+   ;BIT3 
+   BTFSC STORE_INP,3
+   BSF   PORTA,0
+   CALL  DELAY
+   
+   RETURN
+   END   
