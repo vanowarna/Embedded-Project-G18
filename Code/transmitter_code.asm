@@ -7,11 +7,11 @@
   GOTO INT
 
 ; LASER    RA0     OUTPUT       TRISA   B'00000000'
-; SEND      RB0     INTERRUPT    TRISB   B'00011111'
-; BIT0      RB1     INPUT
-; BIT1      RB2     INPUT
-; BIT2      RB3     INPUT
-; BIT3      RB4     INPUT
+; SEND     RB0     INTERRUPT    TRISB   B'00011111'
+; BIT0     RB1     INPUT
+; BIT1     RB2     INPUT
+; BIT2     RB3     INPUT
+; BIT3     RB4     INPUT
 
    CBLOCK 0CH
     COUNT1
@@ -56,12 +56,7 @@ DB_DELAY
    GOTO    DB_DELAY 
    RETURN
 
-
-
-
-
 ;  BIT3,X,BIT2,X,BIT1,X,BIT0,X
-
 LASER_PULSE
    ; DUMMY PULSE 
    BSF   PORTA,0
@@ -106,8 +101,7 @@ LASER_PULSE
 ;    RETURN
 
 ; Added====================================
-DELAY
-			
+DELAY	
 	MOVLW	0x01
 	MOVWF	COUNT1
 	MOVLW	0xBB
@@ -129,4 +123,4 @@ DELAY_0
 	RETURN
 ; Added====================================   
 
-END   
+END 
