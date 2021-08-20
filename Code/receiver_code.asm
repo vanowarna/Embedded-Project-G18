@@ -44,23 +44,28 @@ READ_INPUT
    BTFSC PORTA,1
    BSF   STORE_INP,3
    ; =================
-      
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
 DELAY
    DECFSZ  COUNT2,1
    GOTO    DELAY
    DECFSZ  COUNT3,1
    GOTO    DELAY
    RETURN
+
+OUTPUT
+   MOVF STORE_INP,0
+   MOWF PORTB
+END   
+
+
+
+
+
+
+
+
+
+
+
+
+
