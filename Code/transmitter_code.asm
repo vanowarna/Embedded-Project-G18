@@ -60,6 +60,7 @@ DB_DELAY
 
 
 
+;  BIT3,X,BIT2,X,BIT1,X,BIT0,X
 
 LASER_PULSE
    ; DUMMY PULSE 
@@ -96,10 +97,36 @@ LASER_PULSE
    CALL  DELAY
    
    RETURN
+
+; DELAY
+;    DECFSZ  COUNT2,1
+;    GOTO    DELAY
+;    DECFSZ  COUNT3,1
+;    GOTO    DELAY
+;    RETURN
+
+; Added====================================
 DELAY
-   DECFSZ  COUNT2,1
-   GOTO    DELAY
-   DECFSZ  COUNT3,1
-   GOTO    DELAY
-   RETURN   
+			
+	MOVLW	0x01
+	MOVWF	COUNT1
+	MOVLW	0xBB
+	MOVWF	COUNT2
+	MOVLW	0x01
+	MOVWF	COUNT3
+DELAY_0
+	DECFSZ	COUNT1, f
+	GOTO	$+2
+	DECFSZ	COUNT2, f
+	GOTO	$+2
+	DECFSZ	COUNT3, f
+	GOTO	DELAY_0
+			
+	GOTO	$+1
+	GOTO	$+1
+	NOP
+
+	RETURN
+; Added====================================   
+
 END   
