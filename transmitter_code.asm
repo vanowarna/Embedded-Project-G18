@@ -6,6 +6,13 @@
   ORG 0x04
   GOTO INT
 
+; SENSOR    RA0     OUTPUT       TRISA   B'00000000'
+; SEND      RB0     INTERRUPT    TRISB   B'00011111'
+; BIT0      RB1     INPUT
+; BIT1      RB2     INPUT
+; BIT2      RB3     INPUT
+; BIT3      RB4     INPUT
+
    CBLOCK 0CH
     COUNT1
     COUNT2
@@ -16,6 +23,8 @@
 MAIN
    BSF   STATUS,5
    CLRF  TRISA
+   MOVLW B'00011111'
+   MOVWF TRISB
    BCF   STATUS,5
    CLRF  PORTA
 INTDEF
@@ -47,13 +56,8 @@ DB_DELAY
    GOTO    DB_DELAY 
    RETURN
 
-; Temporary delay for pulse. Use a timer
-DELAY
-   DECFSZ  COUNT2,1
-   GOTO    DELAY
-   DECFSZ  COUNT3,1
-   GOTO    DELAY
-   RETURN
+
+
 
 
 
@@ -92,4 +96,10 @@ LASER_PULSE
    CALL  DELAY
    
    RETURN
-   END   
+DELAY
+   DECFSZ  COUNT2,1
+   GOTO    DELAY
+   DECFSZ  COUNT3,1
+   GOTO    DELAY
+   RETURN   
+END   
