@@ -6,7 +6,7 @@
   ORG 0x04
   GOTO INT
 
-; SENSOR    RA0     OUTPUT       TRISA   B'00000000'
+; LASER    RA0     OUTPUT       TRISA   B'00000000'
 ; SEND      RB0     INTERRUPT    TRISB   B'00011111'
 ; BIT0      RB1     INPUT
 ; BIT1      RB2     INPUT
