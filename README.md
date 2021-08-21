@@ -7,6 +7,6 @@ Group members
 + B.P.P. PERERA
 
 ### Table of Contents
-1. [Assembly scripts](/code/)
-2. [Proteus simulation files](/Proteus%20simulation/)
+1. [Assembly scripts](/Code)
+2. [Proteus simulation files](/Proteus%20simulation)
 
