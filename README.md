@@ -6,4 +6,4 @@ Group members
 + W.M.S.D. WIJESOORIYA
 + B.P.P. PERERA
 
-[Find the code here](https://github.com/vanowarna/Embedded-Project-G18/tree/main/Code)
+[Find the code here](Code)
