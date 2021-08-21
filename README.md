@@ -6,4 +6,7 @@ Group members
 + W.M.S.D. WIJESOORIYA
 + B.P.P. PERERA
 
-[Find the code here](/Code/)
+### Table of Contents
+1. [Assembly scripts](/code/)
+2. [Proteus simulation files](/Proteus%20simulation/)
+
