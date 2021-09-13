@@ -45,16 +45,40 @@ READ_INPUT
    BSF   STORE_INP,3
    ; =================
    
-DELAY
-   DECFSZ  COUNT2,1
-   GOTO    DELAY
-   DECFSZ  COUNT3,1
-   GOTO    DELAY
-   RETURN
+; DELAY
+;    DECFSZ  COUNT2,1
+;    GOTO    DELAY
+;    DECFSZ  COUNT3,1
+;    GOTO    DELAY
+;    RETURN
 
 OUTPUT
    MOVF STORE_INP,0
    MOWF PORTB
+
+; Added====================================
+DELAY	
+	MOVLW	0x01
+	MOVWF	COUNT1
+	MOVLW	0xBB
+	MOVWF	COUNT2
+	MOVLW	0x01
+	MOVWF	COUNT3
+DELAY_0
+	DECFSZ	COUNT1, f
+	GOTO	$+2
+	DECFSZ	COUNT2, f
+	GOTO	$+2
+	DECFSZ	COUNT3, f
+	GOTO	DELAY_0
+			
+	GOTO	$+1
+	GOTO	$+1
+	NOP
+
+	RETURN
+; Added====================================  
+
 END   
 
 
