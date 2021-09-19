@@ -8,6 +8,7 @@
 ; BIT1      RB2     OUTPUT
 ; BIT2      RB3     OUTPUT
 ; BIT3      RB4     OUTPUT
+;  000xxxx0
 
    CBLOCK 0CH
     COUNT1
@@ -33,18 +34,55 @@ INPUT_CHECK
     GOTO READ_INPUT
 
 READ_INPUT
-      CALL  DB_DELAY
+;      CALL  DB_DELAY
    ; =================
-   BTFSC PORTA,1
-   BSF   STORE_INP,0
+;   BTFSC PORTA,1
+;   BSF   STORE_INP,0
+;   BTFSC PORTA,1
+;   BSF   STORE_INP,1
+;   BTFSC PORTA,1
+;   BSF   STORE_INP,2
+;   BTFSC PORTA,1
+;   BSF   STORE_INP,3
+   ; =================
+   CALL DELAY
+   CALL DELAY
+   CALL DELAY
+   
    BTFSC PORTA,1
    BSF   STORE_INP,1
+   
+   CALL DELAY
+   CALL DELAY
+   CALL DELAY
+   CALL DELAY
+   
    BTFSC PORTA,1
    BSF   STORE_INP,2
+   
+   CALL DELAY
+   CALL DELAY
+   CALL DELAY
+   CALL DELAY
+   
    BTFSC PORTA,1
    BSF   STORE_INP,3
-   ; =================
+
+   CALL DELAY
+   CALL DELAY
+   CALL DELAY
+   CALL DELAY
    
+   BTFSC PORTA,1
+   BSF   STORE_INP,4
+  
+   
+OUTPUT
+   MOVF STORE_INP,0
+   MOVWF PORTB
+
+GOTO READ_INPUT   
+
 ; DELAY
 ;    DECFSZ  COUNT2,1
 ;    GOTO    DELAY
@@ -75,11 +113,18 @@ DELAY_0
 			;4 cycles (including call)
 	RETURN
 ; Added====================================  
-
-   
-OUTPUT
-   MOVF STORE_INP,0
-   MOWF PORTB
-
-
+ 
 END   
+
+
+
+
+
+
+
+
+
+
+
+
+
