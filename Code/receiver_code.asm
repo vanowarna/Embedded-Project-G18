@@ -34,6 +34,7 @@ INPUT_CHECK
     GOTO READ_INPUT
 
 READ_INPUT
+    CLRF  PORTB
 ;      CALL  DB_DELAY
    ; =================
 ;   BTFSC PORTA,1
