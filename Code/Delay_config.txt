@@ -1,0 +1,88 @@
+Delay config
+============
+Temporary registers names
+COUNT1 COUNT2 COUNT3 COUNT4
+
+Clock frequency
+4.433619
+MHz
+
+Generate routine    
+DELAY
+
+======================
+
+; Delay = 2 seconds
+; Clock frequency = 4.43362 MHz
+
+; Actual delay = 2.0000004511 seconds = 2216810 cycles
+; Error = -2.25549376254e-05 %
+
+	cblock
+	COUNT1
+	COUNT2
+	COUNT3
+	endc
+
+DELAY
+			;2216800 cycles
+	movlw	0x0D
+	movwf	COUNT1
+	movlw	0xD6
+	movwf	COUNT2
+	movlw	0x05
+	movwf	COUNT3
+DELAY_0
+	decfsz	COUNT1, f
+	goto	$+2
+	decfsz	COUNT2, f
+	goto	$+2
+	decfsz	COUNT3, f
+	goto	DELAY_0
+
+			;6 cycles
+	goto	$+1
+	goto	$+1
+	goto	$+1
+
+			;4 cycles (including call)
+	return
+
+
+==================================================
+
+
+
+; Delay = 1 seconds
+; Clock frequency = 4.43362 MHz
+
+; Actual delay = 1.00000022555 seconds = 1108405 cycles
+; Error = -2.25549376254e-05 %
+
+	cblock
+	COUNT1
+	COUNT2
+	COUNT3
+	endc
+
+DELAY
+			;1108399 cycles
+	movlw	0x86
+	movwf	COUNT1
+	movlw	0x6B
+	movwf	COUNT2
+	movlw	0x03
+	movwf	COUNT3
+DELAY_0
+	decfsz	COUNT1, f
+	goto	$+2
+	decfsz	COUNT2, f
+	goto	$+2
+	decfsz	COUNT3, f
+	goto	DELAY_0
+
+			;2 cycles
+	goto	$+1
+
+			;4 cycles (including call)
+	return

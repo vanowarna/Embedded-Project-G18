@@ -1,4 +1,4 @@
-  LIST p=16F84A
+LIST p=16F84A
   #INCLUDE <p16f84a.inc>
 
   ORG 0x00
@@ -100,13 +100,14 @@ LASER_PULSE
 ;    GOTO    DELAY
 ;    RETURN
 
-; Added====================================
-DELAY	
-	MOVLW	0x01
+; Added=========2 second delay=====================
+DELAY
+			;2216800 cycles
+	MOVLW	0x0D
 	MOVWF	COUNT1
-	MOVLW	0xBB
+	MOVLW	0xD6
 	MOVWF	COUNT2
-	MOVLW	0x01
+	MOVLW	0x05
 	MOVWF	COUNT3
 DELAY_0
 	DECFSZ	COUNT1, f
@@ -115,12 +116,16 @@ DELAY_0
 	GOTO	$+2
 	DECFSZ	COUNT3, f
 	GOTO	DELAY_0
-			
-	GOTO	$+1
-	GOTO	$+1
-	NOP
 
+			;6 cycles
+	GOTO	$+1
+	GOTO	$+1
+	GOTO	$+1
+
+			;4 cycles (including call)
 	RETURN
 ; Added====================================   
 
-END 
+END
+
+	
