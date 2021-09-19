@@ -45,27 +45,41 @@ READ_INPUT
    BSF   STORE_INP,3
    ; =================
    
-DELAY
-   DECFSZ  COUNT2,1
-   GOTO    DELAY
-   DECFSZ  COUNT3,1
-   GOTO    DELAY
-   RETURN
+; DELAY
+;    DECFSZ  COUNT2,1
+;    GOTO    DELAY
+;    DECFSZ  COUNT3,1
+;    GOTO    DELAY
+;    RETURN
 
+; Added============ 1 second ========================
+DELAY
+			;1108399 cycles
+	MOVLW	0x86
+	MOVWF	COUNT1
+	MOVLW	0x6B
+	MOVWF	COUNT2
+	MOVLW	0x03
+	MOVWF	COUNT3
+DELAY_0
+	DECFSZ	COUNT1, f
+	GOTO	$+2
+	DECFSZ	COUNT2, f
+	GOTO	$+2
+	DECFSZ	COUNT3, f
+	GOTO	DELAY_0
+
+			;2 cycles
+	GOTO	$+1
+
+			;4 cycles (including call)
+	RETURN
+; Added====================================  
+
+   
 OUTPUT
    MOVF STORE_INP,0
    MOWF PORTB
+
+
 END   
-
-
-
-
-
-
-
-
-
-
-
-
-
