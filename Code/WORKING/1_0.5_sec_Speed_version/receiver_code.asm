@@ -93,14 +93,14 @@ OUTPUT
 ;    GOTO    DELAY
 ;    RETURN
 
-; Added============ 1 second ========================
+; Added============ 0.5 second ========================
 DELAY
-			;1108399 cycles
-	MOVLW	0x86
+			;554195 cycles
+	MOVLW	0x42
 	MOVWF	COUNT1
-	MOVLW	0x6B
+	MOVLW	0x36
 	MOVWF	COUNT2
-	MOVLW	0x03
+	MOVLW	0x02
 	MOVWF	COUNT3
 DELAY_0
 	DECFSZ	COUNT1, f
@@ -110,8 +110,9 @@ DELAY_0
 	DECFSZ	COUNT3, f
 	GOTO	DELAY_0
 
-			;2 cycles
+			;3 cycles
 	GOTO	$+1
+	NOP
 
 			;4 cycles (including call)
 	RETURN

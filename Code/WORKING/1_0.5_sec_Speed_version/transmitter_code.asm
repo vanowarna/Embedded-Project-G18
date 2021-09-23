@@ -101,14 +101,14 @@ LASER_PULSE
 ;    GOTO    DELAY
 ;    RETURN
 
-; Added=========2 second delay=====================
+; Added============ 1 second ========================
 DELAY
-			;2216800 cycles
-	MOVLW	0x0D
+			;1108399 cycles
+	MOVLW	0x86
 	MOVWF	COUNT1
-	MOVLW	0xD6
+	MOVLW	0x6B
 	MOVWF	COUNT2
-	MOVLW	0x05
+	MOVLW	0x03
 	MOVWF	COUNT3
 DELAY_0
 	DECFSZ	COUNT1, f
@@ -118,9 +118,7 @@ DELAY_0
 	DECFSZ	COUNT3, f
 	GOTO	DELAY_0
 
-			;6 cycles
-	GOTO	$+1
-	GOTO	$+1
+			;2 cycles
 	GOTO	$+1
 
 			;4 cycles (including call)
