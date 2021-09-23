@@ -86,3 +86,42 @@ DELAY_0
 
 			;4 cycles (including call)
 	return
+
+=================================================================
+
+
+
+; Delay = 0.5 seconds
+; Clock frequency = 4.43362 MHz
+
+; Actual delay = 0.499999661676 seconds = 554202 cycles
+; Error = 6.76648128763e-05 %
+
+	cblock
+	COUNT1
+	COUNT2
+	COUNT3
+	endc
+
+DELAY
+			;554195 cycles
+	movlw	0x42
+	movwf	COUNT1
+	movlw	0x36
+	movwf	COUNT2
+	movlw	0x02
+	movwf	COUNT3
+DELAY_0
+	decfsz	COUNT1, f
+	goto	$+2
+	decfsz	COUNT2, f
+	goto	$+2
+	decfsz	COUNT3, f
+	goto	DELAY_0
+
+			;3 cycles
+	goto	$+1
+	nop
+
+			;4 cycles (including call)
+	return
