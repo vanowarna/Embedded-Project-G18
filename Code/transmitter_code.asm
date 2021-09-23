@@ -48,6 +48,7 @@ INT
    BSF   STORE_INP,3
    ; =================
    CALL  LASER_PULSE
+   CLRF  STORE_INP
    BCF	INTCON,INTF		
    RETFIE			
     
