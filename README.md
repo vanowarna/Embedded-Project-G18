@@ -1,6 +1,11 @@
 # LASER COMMUNICATION SYSTEM
 ## Embedded-Project-G18
 
+![Tag](https://img.shields.io/badge/PIC-16F84A-brightgreen) ![Tag](https://img.shields.io/badge/BIT-4-white) ![Tag](https://img.shields.io/static/v1?label=SCRIPT&message=ASSEMBLY&color=green&logo=assemblyscript)
+<br>
+![Tag](https://img.shields.io/static/v1?label=EE322&message=EMBEDDED_SYSTEM_DESIGN&color=blue) ![Tag](https://img.shields.io/static/v1?label=E17&message=DEEE&color=maroon) ![Tag](https://img.shields.io/static/v1?label=FoE&message=UoP&color=yellow)
+
+
 Group members
 + W.A.V.G. WARNASOORIYA
 + W.M.S.D. WIJESOORIYA
