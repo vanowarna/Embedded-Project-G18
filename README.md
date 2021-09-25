@@ -33,3 +33,10 @@ In Industrial applications, transmitting and receiving signals with higher preci
   <td><img src="https://user-images.githubusercontent.com/55307326/134531580-21e15a21-f159-4a7f-9313-35eeceacf136.png" alt="" align="right"/></td>
   </tr>
 </table>
+
+<br><br>
+<a href="https://www.linkedin.com/in/vanowarna/"><img src="https://img.shields.io/static/v1?label=Contributor&message=Vanodhya Warnasooriya&color=blue&logo=linkedin" /></a>
+<br>
+<a href="https://www.linkedin.com/in/sachith-wijesooriya-2750741b6/"><img src="https://img.shields.io/static/v1?label=Contributor&message=Sachith Wijesooriya&color=blue&logo=linkedin" /></a>
+<br>
+<a href="https://www.linkedin.com/in/pulasthi-perera-438928211/"><img src="https://img.shields.io/static/v1?label=Contributor&message=Pulasthi Perera&color=blue&logo=linkedin" /></a>
